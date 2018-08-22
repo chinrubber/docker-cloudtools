@@ -9,6 +9,7 @@ ENV TERRAFORM_GSUITE_MODULE_VERSION=0.1.8
 RUN mkdir /opt && \
     mkdir /opt/terraform && \
     apk --no-cache add \
+	git \
 	curl \
 	bash \
 	python && \
