@@ -29,7 +29,8 @@ RUN mkdir /opt && \
     mkdir /opt/sentinel && \
     curl -O https://releases.hashicorp.com/sentinel/${SENTINEL_VERSION}/sentinel_${SENTINEL_VERSION}_linux_amd64.zip && \
     unzip sentinel_${SENTINEL_VERSION}_linux_amd64.zip -d /opt/sentinel && \
-    rm sentinel_${SENTINEL_VERSION}_linux_amd64.zip 
+    rm sentinel_${SENTINEL_VERSION}_linux_amd64.zip && \
+    go get github.com/palantir/tfjson
 
 ENV PATH=$PATH:/opt/google-cloud-sdk/bin:/opt/terraform:/opt/sentinel
 
