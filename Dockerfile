@@ -32,9 +32,11 @@ RUN mkdir /opt && \
     rm terraform-provider-gsuite_${TERRAFORM_GSUITE_MODULE_VERSION}_linux_amd64.tgz && \
     mv terraform-provider-gsuite_v${TERRAFORM_GSUITE_MODULE_VERSION} $HOME/.terraform.d/plugins && \
     gem install --no-document --source ${GEM_SOURCE} --version ${INSPEC_VERSION} inspec && \
-    apk del build-base
+    apk del build-base && \
+    cd /opt && \
+    git clone https://github.com/hashicorp/tfe-cli.git
 
-ENV PATH=$PATH:/opt/google-cloud-sdk/bin:/opt/terraform
+ENV PATH=$PATH:/opt/google-cloud-sdk/bin:/opt/terraform:/opt/tfe-cli/bin
 
 WORKDIR /opt
 
